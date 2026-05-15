@@ -3,9 +3,13 @@ import logging
 from datetime import datetime
 from pathlib import Path
 
-from aiogram.utils.executor import start_polling
+from aiogram import Bot, Dispatcher
+from app import TOKEN
 
 from app.handlers import *
+
+bot = Bot(token=TOKEN)
+dp = Dispatcher()
 
 
 async def main():
