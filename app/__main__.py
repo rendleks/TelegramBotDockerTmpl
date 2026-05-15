@@ -8,7 +8,7 @@ from aiogram.utils.executor import start_polling
 from app.handlers import *
 
 
-def main():
+async def main():
     log_name = f'logs/{datetime.now().strftime("%Y-%m-%d")}.log'
     Path(log_name).parent.mkdir(parents=True, exist_ok=True)
 
@@ -18,8 +18,18 @@ def main():
         filemode="a"
     )
 
-    start_polling(dp, skip_updates=True)
+    token = getenv("BOT_TOKEN")
+    if not token:      
+        error = "No token provided"
+        raise ValueError(error)    
+    bot = Bot(token=token)
+    
+    print("Starting bot...")
+    try:
+        await dp.start_polling(bot)
+    finally:
+        print("Bot stopped")
 
 
 if __name__ == '__main__':
-    main()
+    asyncio.run(main())
