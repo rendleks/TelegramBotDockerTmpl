@@ -34,10 +34,7 @@ async def main():
         filename=log_name,
         filemode="a"
     )
-
-    if not token:      
-        error = "No token provided"
-        raise ValueError(error)    
+    
     bot = Bot(token=TOKEN)
     
     print("Starting bot...")
