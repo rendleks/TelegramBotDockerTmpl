@@ -4,12 +4,13 @@ from datetime import datetime
 from pathlib import Path
 
 from aiogram import Bot, Dispatcher
-from app import TOKEN
+from aiogram import types
 
-from app.handlers import *
+from app import TOKEN
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
+
 
 
 async def main():
