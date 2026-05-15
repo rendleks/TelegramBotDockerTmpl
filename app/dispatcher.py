@@ -4,4 +4,4 @@ from app import TOKEN
 
 
 bot = Bot(token=TOKEN)
-dp = Dispatcher(bot)
+dp = Dispatcher()
