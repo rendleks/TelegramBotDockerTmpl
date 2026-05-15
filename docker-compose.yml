@@ -4,7 +4,7 @@ services:
 
     telegram_bot_docker_tmpl:
         container_name: TelegramBotDockerTmpl
-        image: telegram_bot_docker_tmpl
+        # image: telegram_bot_docker_tmpl
 
         build: .
 
@@ -12,15 +12,15 @@ services:
             - BOT_TOKEN=${BOT_TOKEN}
 
         ports:
-            - "443:443"
+            - "443"
 
         volumes:
           - ./logs:/~/TelegramBotDockerTmpl/logs
 
         restart: on-failure
 
-volumes:
-  logs:
+#volumes:
+#  logs:
 
 
 # -------------------------------
