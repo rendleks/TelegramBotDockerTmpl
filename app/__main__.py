@@ -8,7 +8,6 @@ from aiogram import types
 
 from app import TOKEN
 
-bot = Bot(token=TOKEN)
 dp = Dispatcher()
 
 @dp.message_handler(commands=['start', 'help'])
@@ -36,11 +35,10 @@ async def main():
         filemode="a"
     )
 
-    token = getenv("BOT_TOKEN")
     if not token:      
         error = "No token provided"
         raise ValueError(error)    
-    bot = Bot(token=token)
+    bot = Bot(token=TOKEN)
     
     print("Starting bot...")
     try:
